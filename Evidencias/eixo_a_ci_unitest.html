@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>unitest.yml</title>
+  <link rel="stylesheet" href="_estilo_ide.css" />
+</head>
+<body>
+  <div class="titlebar">
+    <span>Visual Studio Code</span>
+    <span class="path">.github/workflows/unitest.yml</span>
+  </div>
+  <div class="tabs"><span class="tab">unitest.yml</span></div>
+  <pre>
+<div class="line"><span class="gutter">1</span><span class="fn">name</span>: Unit Test</div>
+<div class="line"><span class="gutter">2</span><span class="fn">on</span>: [ push, pull_request ]</div>
+<div class="line hl"><span class="gutter">13</span>        python-version: [<span class="str">"3.8"</span>, <span class="str">"3.9"</span>, <span class="str">"3.10"</span>]</div>
+<div class="line hl"><span class="gutter">47</span>        run: tests/testall.sh</div>
+  </pre>
+  <div class="meta">
+    Eixo A.3 — Code review: revisão humana nem sempre documentada nos PRs; o CI executa
+    <code>tests/testall.sh</code> (ex.: tests/#511.py, #588.py, #655.py). Cadência de commits com picos
+    observável em https://github.com/2noise/ChatTTS/graphs/contributors · Risco: <strong>Médio</strong>
+  </div>
+</body>
+</html>

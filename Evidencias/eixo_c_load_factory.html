@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>load — Factory</title>
+  <link rel="stylesheet" href="_estilo_ide.css" />
+</head>
+<body>
+  <div class="titlebar">
+    <span>Visual Studio Code</span>
+    <span class="path">ChatTTS/core.py</span>
+  </div>
+  <pre>
+<div class="line hl"><span class="gutter">143</span>    <span class="kw">def</span> <span class="fn">load</span>(self, source=<span class="str">"local"</span>, ...):</div>
+<div class="line"><span class="gutter">154</span>        download_path = self.<span class="fn">download_models</span>(source, ...)</div>
+<div class="line"><span class="gutter">157</span>        <span class="kw">return</span> self.<span class="fn">_load</span>(device=device, ...)</div>
+<div class="line"><span class="gutter">—</span><span class="cm"># Usuário chama chat.load(); internamente: GPT, DVAE, Vocos, Tokenizer...</span></div>
+  </pre>
+  <div class="meta">
+    Eixo C.1 — Aproximação de Factory Method (encapsulamento de criação), sem Singleton nem
+    Abstract Factory formal · Risco: <strong>Médio</strong> (memória em múltiplas instâncias de <code>Chat</code>)
+  </div>
+</body>
+</html>

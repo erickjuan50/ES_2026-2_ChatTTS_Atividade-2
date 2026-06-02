@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>core.py — God Object</title>
+  <link rel="stylesheet" href="_estilo_ide.css" />
+</head>
+<body>
+  <div class="titlebar">
+    <span>Visual Studio Code</span>
+    <span class="path">ChatTTS/core.py</span>
+  </div>
+  <pre>
+<div class="line hl"><span class="gutter">64</span>    <span class="kw">def</span> <span class="fn">download_models</span>(self, ...):</div>
+<div class="line"><span class="gutter">—</span>        <span class="cm"># I/O: Hugging Face, sha256_map, check_all_assets</span></div>
+<div class="line hl"><span class="gutter">143</span>    <span class="kw">def</span> <span class="fn">load</span>(self, source=..., compile=..., use_vllm=...):</div>
+<div class="line hl"><span class="gutter">248</span>    <span class="kw">def</span> <span class="fn">_load</span>(self, vocos_ckpt_path, dvae_ckpt_path, gpt_ckpt_path, ...):</div>
+<div class="line"><span class="gutter">—</span>        <span class="cm"># Instancia Vocos, DVAE, Embed, GPT, Speaker, Decoder</span></div>
+<div class="line hl"><span class="gutter">200</span>    <span class="kw">def</span> <span class="fn">infer</span>(self, text, stream=False, ...):</div>
+<div class="line"><span class="gutter">—</span>        <span class="cm"># Orquestra normalização, refine, infer_code, decode</span></div>
+  </pre>
+  <div class="meta">
+    Eixo B.2 — <code>Chat</code> concentra infraestrutura, ciclo de vida de redes neurais e regra de negócio
+    de inferência no mesmo arquivo (~750 linhas). Anti-padrão God Object · Violação SRP ·
+    Alinhado ao Plano de Resgate (refatoração em <code>plano_resgate/</code>)
+  </div>
+</body>
+</html>

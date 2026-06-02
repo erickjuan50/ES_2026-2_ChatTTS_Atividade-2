@@ -1,78 +1,74 @@
-# Auditoria de Maturidade ChatTTS - Engenharia de Software (COMP0503)
+# Auditoria Forense de Software e Plano de Resgate — ChatTTS
 
-Este repositório apresenta os resultados da Atividade Avaliativa 1 (A1), focada na Auditoria de Maturidade em Ecossistemas LLM do projeto ChatTTS. A análise foi estruturada seguindo critérios de modelos como CMMI e MPS.BR.
+**Disciplina:** Engenharia de Software (COMP0503)  
+**Atividade:** A2 — Auditoria Forense e Plano de Resgate Técnico  
+**Prazo:** 02 de junho de 2026  
+**Projeto auditado:** [2noise/ChatTTS](https://github.com/2noise/ChatTTS) (repositório público upstream; este repositório é o de **trabalho da equipe**, não um clone do original)
 
-## Equipe e Contribuições Individuais
-* Erick Juan Gois Oliveira: Análise do Eixo IV - Verificação e Validação.
-* Wanessa Silva Santos: Análise do Eixo V - Qualidade de Software.
-* Carlos Henrico Fontes Cabral: Análise do Eixo I - Gestão de Projeto.
-* Luiz Felipe da Conceição Souza: Análise do Eixo III - Arquitetura e Modelagem.
-* João Pedro Brandão Almeida: Análise do Eixo II - Engenharia de Requisitos.
-* Lucas da Silva Batista: Conclusão e Plano de Melhoria.
+## Equipe
+
+Carlos Henrico Fontes Cabral, Wanessa Silva Santos, Luiz Felipe da Conceição Souza, Erick Juan Gois Oliveira, João Pedro Brandão Almeida, Lucas da Silva Batista.
+
+| Integrante | Contribuição na A2 |
+| :--- | :--- |
+| Carlos Henrico Fontes Cabral | Eixo A — O Pulso da Gestão (GPR) |
+| Luiz Felipe da Conceição Souza | Eixo B — Anatomia do Código (SOLID e DRY) |
+| João Pedro Brandão Almeida | Eixo C — Padrões de Projeto (GoF) |
+| Erick Juan Gois Oliveira | Evidências de CI e ritmo de entrega |
+| Wanessa Silva Santos | Riscos técnicos e validação (conexão A1→A2) |
+| Lucas da Silva Batista | Plano de Resgate e roadmap MPS.BR |
+
+## Entregáveis neste repositório
+
+| Pasta | Conteúdo |
+| :--- | :--- |
+| [`evidencias/`](evidencias/) | Prints (HTML) de trechos e links do GitHub — um por item investigado |
+| [`resultado/`](resultado/) | Diagnóstico consolidado por eixo (evidência + análise + risco) |
+| [`plano_resgate/`](plano_resgate/) | Refatoração conceitual (Abstract Factory) e roadmap nível G MPS.BR |
+| [`prompts/`](prompts/) | Roteiros de replicação da auditoria (checklists por eixo) |
+| [`artefatos/`](artefatos/) | Links verificáveis, arquivos analisados e log da auditoria |
+
+**Relatório técnico (PDF)** e **apresentação Beamer** são entregues no Classroom conforme o enunciado.  
+**Vídeo (7–15 min):** link público obrigatório neste README e no PDF (nomenclatura do enunciado: `A2_ChatTTS_NomeDoLider.mp4`).
+
+### Vídeo da auditoria
+
+- Hospedagem: link público (YouTube, Drive ou similar) — o arquivo **não** deve ser enviado pelo upload do Classroom
+- Demonstração: achados da auditoria + navegação no IDE/repositório analisado
+- Incluir o link aqui antes da entrega final
 
 ---
 
-## Resumo dos Achados de Auditoria
+## Conexão com a Atividade 1
 
-O ChatTTS demonstra uma qualidade operacional elevada, mas com lacunas significativas em formalização de processos.
+Na A1 identificamos a fachada `Chat` em `ChatTTS/core.py`, parametrização via `RefineTextParams` / `InferCodeParams` (sem Strategy completo) e lacunas de rastreabilidade e validação de saída. A A2 aprofunda **gestão (GPR)**, **dívida técnica (SOLID/DRY)** e **GoF**, culminando no plano de resgate.
 
-| Eixo de Auditoria | Julgamento de Maturidade | Principais Observações |
+---
+
+## Resumo dos achados (A2)
+
+| Eixo | Foco | Classificação de risco (síntese) |
 | :--- | :--- | :--- |
-| I - Gestão (GPR) | Aderência Parcial | Ciclo adaptativo com roadmap, mas sem planejamento por milestones. |
-| II - Requisitos (GRE) | Aderência Parcial | Rastreabilidade via Issues/PRs, mas sem processo formal de baseline. |
-| III - Arquitetura (PJR) | Boa Aderência | Arquitetura modular (Facade) com bom isolamento de componentes. |
-| IV - Verificação (V&V) | Boa (VER) / Parcial (VAL) | CI forte para código, mas fraco em validar a qualidade do áudio gerado. |
-| V - Qualidade (GQA) | Aderência Parcial | Automação de estilo presente, mas sem análise estática avançada. |
+| **A** — Gestão | Issue [#704](https://github.com/2noise/ChatTTS/issues/704), riscos em releases/README, ritmo e code review | Alto (arqueologia) / Médio-alto (riscos) / Médio (ritmo) |
+| **B** — Código | DIP, God Object em `core.py`, DRY em `_refine_text` / `_infer_code` | Alto (acoplamento estrutural) |
+| **C** — GoF | Factory em `load()`, Facade, pipeline tipo Chain; Strategy parcial | Médio (criacional) / Baixo (estrutural) / Médio-baixo (comportamental) |
+
+Detalhamento: [`resultado/diagnostico_consolidado_a2.md`](resultado/diagnostico_consolidado_a2.md).
 
 ---
 
-## Tutorial de Pesquisa: Como Validar esta Auditoria
+## Como replicar a auditoria
 
-Para que qualquer interessado possa chegar às mesmas conclusões ou auditar o projeto de forma independente, os passos abaixo detalham como navegar no repositório oficial do ChatTTS no GitHub.
+1. **Eixo A:** Abra a [Issue #704](https://github.com/2noise/ChatTTS/issues/704); leia [releases](https://github.com/2noise/ChatTTS/releases) e o [README](https://github.com/2noise/ChatTTS/blob/main/README.md) (avisos TransformerEngine/FlashAttention); compare [Insights → Contributors](https://github.com/2noise/ChatTTS/graphs/contributors) e PRs em [.github/workflows/unitest.yml](https://github.com/2noise/ChatTTS/blob/main/.github/workflows/unitest.yml).
+2. **Eixo B:** Inspecione `ChatTTS/core.py` (`load`, `_load`, `infer`, `_refine_text`, `_infer_code`) e `ChatTTS/model/gpt.py`, `dvae.py`; conte dependências concretas importadas pela classe `Chat`.
+3. **Eixo C:** Mapeie Facade (`infer`), carga via `chat.load()`, pipeline sequencial entre módulos em `ChatTTS/model/`.
+4. **Plano de resgate:** Veja [`plano_resgate/`](plano_resgate/) — proposta de `PipelineFactory` (Abstract Factory) e três ações GPR para nível G.
 
-### 1. Como auditar Gestão e Requisitos (Eixos I e II)
-* Onde pesquisar: Abas de Issues e Pull Requests.
-* O que fazer: Procure por solicitações de novas funcionalidades ou correções de bugs. 
-* Conclusão: Verifique se as alterações no código (PRs) estão vinculadas a uma demanda específica (Issue). Note a ausência de Milestones ou abas de Projects configuradas, o que evidencia que o planejamento é orientado por necessidades técnicas imediatas da comunidade e não por um cronograma formal.
-
-### 2. Como auditar a Arquitetura (Eixo III)
-* Onde pesquisar: Estrutura de pastas do código-fonte.
-* O que fazer: Localize a classe central Chat.
-* Conclusão: Analise como essa classe funciona como uma fachada (Facade) para orquestrar módulos como Normalizer, Tokenizer e os modelos GPT/DVAE. Se os componentes são carregados de forma independente e modular, a boa aderência à modelagem técnica é confirmada.
-
-### 3. Como auditar Verificação e Validação (Eixo IV)
-* Onde pesquisar: Pasta .github/workflows/.
-* O que fazer: Inspecione arquivos YAML como unitest.yml e push-format.yml.
-* Conclusão: Estes arquivos mostram a execução automatizada de testes e formatação de código (Verificação). No entanto, ao observar a ausência de testes de regressão que avaliem a inteligibilidade ou naturalidade do áudio, confirma-se a lacuna na Validação da saída da IA.
-
-### 4. Como auditar a Garantia da Qualidade (Eixo V)
-* Onde pesquisar: Raiz do repositório.
-* O que fazer: Procure por arquivos como CONTRIBUTING.md ou evidências de ferramentas como SonarQube ou CodeQL.
-* Conclusão: A ausência de um guia de contribuição oficial e de gates de qualidade automatizados de análise estática fundamenta o achado de que a qualidade é mantida de forma operacional e comunitária, sem formalismos processuais robustos.
-
-* # Tutorial Técnico: Replicação com Google Colab e Hugging Face
-
-Para reproduzir as análises de maturidade e chegar a resultados semelhantes de forma assistida por IA, siga este guia técnico.
-
-### Ferramentas e Modelo Recomendado
-Para esta análise, recomenda-se o uso do modelo **Meta-Llama-3-8B-Instruct** (ou versões superiores), disponível no **Hugging Face**. Este modelo possui alta capacidade de compreensão de normas técnicas e arquitetura de software.
-
-* Plataforma: Google Colab (Ambiente de notebooks em nuvem).
-* Bibliotecas: transformers e bitsandbytes (para rodar o modelo de forma eficiente).
-
-### Requerimentos de Hardware para Máquina Local
-Caso opte por rodar o modelo localmente em vez de usar o Google Colab:
-* GPU: NVIDIA com mínimo de 8 GB de VRAM (ex: RTX 3060 ou superior) para rodar o modelo em modo quantizado (4-bit).
-* RAM: Mínimo de 16 GB.
-* Espaço em Disco: 15 GB livres.
-* Sistema Operacional: Linux ou Windows com WSL2.
-
-### Exemplo de Prompt para Auditoria
-O prompt abaixo deve ser utilizado para instruir a IA a realizar a análise baseada no contexto do repositório:
-
-"Aja como um auditor de qualidade de software especializado em CMMI e MPS.BR. Analise o seguinte conteúdo extraído do projeto ChatTTS [inserir conteúdo aqui]. Com base nos eixos de Gestão de Requisitos, Arquitetura e Verificação/Validação, identifique: 1. Pontos de aderência técnica; 2. Lacunas de formalização de processo; 3. Sugestões de melhoria para atingir um nível de maturidade superior. Apresente o resultado de forma técnica e objetiva."
+Checklists completos: [`prompts/`](prompts/).
 
 ---
 
-## Plano de Melhoria Sugerido
-As ações prioritárias para elevar a maturidade do projeto incluem a institucionalização da gestão (uso de Milestones e Templates) e a implementação de um pipeline de validação objetiva para a saída de áudio gerada pelo modelo.
+## Plano de resgate (visão geral)
+
+1. **Refatoração:** desacoplar montagem de modelos da classe `Chat` via Abstract Factory ([detalhes](plano_resgate/refatoracao_abstract_factory.md)).
+2. **Roadmap MPS.BR G:** templates PR↔Issue, milestones, automação de triagem ([detalhes](plano_resgate/roadmap_mps_br_nivel_g.md)).

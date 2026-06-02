@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Params — Strategy parcial</title>
+  <link rel="stylesheet" href="_estilo_ide.css" />
+</head>
+<body>
+  <div class="titlebar">
+    <span>Visual Studio Code</span>
+    <span class="path">ChatTTS/core.py</span>
+  </div>
+  <pre>
+<div class="line hl"><span class="gutter">175</span>    <span class="kw">class</span> <span class="cls">RefineTextParams</span>:</div>
+<div class="line"><span class="gutter">—</span>        top_P: float = 0.7</div>
+<div class="line"><span class="gutter">—</span>        top_K: int = 20</div>
+<div class="line"><span class="gutter">—</span>        temperature: float = 0.7</div>
+<div class="line hl"><span class="gutter">188</span>    <span class="kw">class</span> <span class="cls">InferCodeParams</span>(<span class="cls">RefineTextParams</span>):</div>
+<div class="line"><span class="gutter">—</span>        prompt: str = <span class="str">"[speed_5]"</span></div>
+<div class="line"><span class="gutter">—</span>        temperature: float = 0.3</div>
+  </pre>
+  <div class="meta">
+    Eixo C.3 — Parametrização (top_P, top_K, temperature) sem classes Strategy intercambiáveis.
+    Pipeline sequencial ≈ Chain of Responsibility · Risco: <strong>Médio-baixo</strong>
+    (conexão A1: Strategy incompleto)
+  </div>
+</body>
+</html>
