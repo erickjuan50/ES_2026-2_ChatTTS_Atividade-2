@@ -4,6 +4,7 @@
 **Atividade:** A2 — Auditoria Forense e Plano de Resgate Técnico  
 **Prazo:** 02 de junho de 2026  
 **Projeto auditado:** [2noise/ChatTTS](https://github.com/2noise/ChatTTS) (repositório público upstream; este repositório é o de **trabalho da equipe**, não um clone do original)
+**Link para o vídeo** https://drive.google.com/file/d/1uiX6I9gkgZbEdLPL41B_WjXjmKJdxroZ/view
 
 ## Equipe
 
