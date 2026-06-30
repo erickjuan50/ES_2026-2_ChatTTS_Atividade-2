@@ -5,7 +5,7 @@
 **Projeto auditado:** [2noise/ChatTTS](https://github.com/2noise/ChatTTS) (repositório upstream; este repositório contém os artefatos da equipe)
 
 **Link para o vídeo de apresentação:** 
-
+https://drive.google.com/file/d/1rw_iGKvXUCag0ene8N5wb_x06BR0d4wd/view?usp=sharing
 ## Equipe
 
 Carlos Henrico Fontes Cabral, Wanessa Silva Santos, Luiz Felipe da Conceição Souza, Erick Juan Gois Oliveira, João Pedro Brandão Almeida.
