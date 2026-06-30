@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Nomenclatura de testes</title>
+  <link rel="stylesheet" href="_estilo_ide.css" />
+</head>
+<body>
+  <div class="titlebar">
+    <span>Comparação — convenção esperada vs. repositório</span>
+    <span class="path">tests/</span>
+  </div>
+  <pre>
+<div class="line"><span class="gutter">—</span><span class="cm">Esperado (pytest)</span></div>
+<div class="line"><span class="gutter">—</span>  test_audio_generation.py</div>
+<div class="line"><span class="gutter">—</span>  test_speaker_embedding.py</div>
+<div class="line"><span class="gutter">—</span>  test_text_normalization.py</div>
+<div class="line"><span class="gutter">—</span></div>
+<div class="line hl"><span class="gutter">—</span><span class="cm">Encontrado (upstream main)</span></div>
+<div class="line hl"><span class="gutter">—</span>  <span class="str">#511.py</span></div>
+<div class="line hl"><span class="gutter">—</span>  <span class="str">#588.py</span></div>
+<div class="line hl"><span class="gutter">—</span>  <span class="str">#655.py</span></div>
+<div class="line"><span class="gutter">—</span></div>
+<div class="line"><span class="gutter">—</span><span class="cm">README principal não documenta a suíte de testes</span></div>
+  </pre>
+  <div class="meta">
+    Eixo B.1 — Scripts nomeados por número de issue não expõem o comportamento validado. Impossível inferir cobertura funcional sem ler cada arquivo. Risco: <strong>Alto</strong>
+  </div>
+</body>
+</html>

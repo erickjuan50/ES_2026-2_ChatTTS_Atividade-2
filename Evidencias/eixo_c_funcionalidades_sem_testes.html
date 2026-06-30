@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Funcionalidades críticas sem testes</title>
+  <link rel="stylesheet" href="_estilo_ide.css" />
+</head>
+<body>
+  <div class="titlebar">
+    <span>Mapeamento funcional</span>
+    <span class="path">ChatTTS/</span>
+  </div>
+  <pre>
+<div class="line"><span class="gutter">—</span>Funcionalidade              Teste dedicado</div>
+<div class="line hl"><span class="gutter">—</span>Inferência de voz           <span class="cm">parcial (#511 — só wav != None)</span></div>
+<div class="line hl"><span class="gutter">—</span>Controle de emoção          <span class="cm">ausente</span></div>
+<div class="line hl"><span class="gutter">—</span>Controle de pausas          <span class="cm">ausente</span></div>
+<div class="line hl"><span class="gutter">—</span>Seleção de locutor          <span class="cm">ausente</span></div>
+<div class="line hl"><span class="gutter">—</span>Geração multi-locutor       <span class="cm">ausente</span></div>
+<div class="line hl"><span class="gutter">—</span>Download de modelos         <span class="cm">ausente</span></div>
+<div class="line hl"><span class="gutter">—</span>Compatibilidade GPU/CPU     <span class="cm">ausente</span></div>
+<div class="line"><span class="gutter">—</span>Normalização textual        <span class="cm">parcial (#655 — string exata)</span></div>
+  </pre>
+  <div class="meta">
+    Eixo C.1 — Funcionalidades centrais do produto não possuem cobertura explícita e documentada. Risco: <strong>Alto</strong>
+  </div>
+</body>
+</html>

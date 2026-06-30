@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Módulos de alto risco</title>
+  <link rel="stylesheet" href="_estilo_ide.css" />
+</head>
+<body>
+  <div class="titlebar">
+    <span>Visual Studio Code</span>
+    <span class="path">ChatTTS/core.py</span>
+  </div>
+  <pre>
+<div class="line hl"><span class="gutter">—</span><span class="cm">a) Inferência — ChatTTS/core.py</span></div>
+<div class="line"><span class="gutter">—</span>   load() · _load() · infer() · _refine_text · _infer_code</div>
+<div class="line"><span class="gutter">—</span></div>
+<div class="line hl"><span class="gutter">—</span><span class="cm">b) Normalização — tools/normalizer.py, releases com fixes CN/EN</span></div>
+<div class="line"><span class="gutter">—</span></div>
+<div class="line hl"><span class="gutter">—</span><span class="cm">c) Dependências — requirements.txt</span></div>
+<div class="line"><span class="gutter">—</span>   torch · transformers · numpy&lt;3.0.0 · requests</div>
+  </pre>
+  <div class="meta">
+    Eixo C.2 — Módulos de inferência e normalização concentram dívida técnica e histórico de correções. Alterações em <code>core.py</code> impactam toda a geração de áudio. Risco: <strong>Alto</strong>
+    Links: <a href="https://github.com/2noise/ChatTTS/blob/main/ChatTTS/core.py">core.py</a> ·
+    <a href="https://github.com/2noise/ChatTTS/blob/main/requirements.txt">requirements.txt</a>
+  </div>
+</body>
+</html>

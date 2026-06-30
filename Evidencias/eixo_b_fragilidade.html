@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Fragilidade da suíte</title>
+  <link rel="stylesheet" href="_estilo_ide.css" />
+</head>
+<body>
+  <div class="titlebar">
+    <span>tests/testall.sh + requirements.txt</span>
+    <span class="path">tests/</span>
+  </div>
+  <pre>
+<div class="line hl"><span class="gutter">5</span><span class="kw">for</span> file <span class="kw">in</span> tests/*.py</div>
+<div class="line hl"><span class="gutter">8</span>    python <span class="str">"$file"</span></div>
+<div class="line"><span class="gutter">—</span></div>
+<div class="line"><span class="gutter">—</span><span class="cm">requirements.txt (trecho):</span></div>
+<div class="line hl"><span class="gutter">1</span>numpy&lt;3.0.0</div>
+<div class="line hl"><span class="gutter">3</span>torch&gt;=2.1.0</div>
+<div class="line hl"><span class="gutter">7</span>transformers&gt;=4.41.1</div>
+<div class="line"><span class="gutter">—</span><span class="cm">Sensível a: GPU, CUDA, versão PyTorch, download HF, aleatoriedade do modelo</span></div>
+  </pre>
+  <div class="meta">
+    Eixo B.5 — Testes acoplados a hardware e bibliotecas voláteis tendem a ser frágeis. Alterações menores em dependências ou ambiente podem alterar resultados. Risco: <strong>Médio</strong>
+  </div>
+</body>
+</html>

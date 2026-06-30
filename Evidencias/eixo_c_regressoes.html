@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Proteção contra regressões</title>
+  <link rel="stylesheet" href="_estilo_ide.css" />
+</head>
+<body>
+  <div class="titlebar">
+    <span>CI + histórico de releases</span>
+    <span class="path">.github/workflows/</span>
+  </div>
+  <pre>
+<div class="line"><span class="gutter">+</span>  CI em push/PR via unitest.yml</div>
+<div class="line"><span class="gutter">+</span>  3 scripts de regressão por issue (#511, #588, #655)</div>
+<div class="line"><span class="gutter">—</span></div>
+<div class="line hl"><span class="gutter">−</span>  Sem testes end-to-end de síntese de voz</div>
+<div class="line hl"><span class="gutter">−</span>  Sem golden tests (entrada/saída de referência)</div>
+<div class="line hl"><span class="gutter">−</span>  Sem validação automática de qualidade de áudio</div>
+<div class="line hl"><span class="gutter">−</span>  Regressões documentadas em releases públicos</div>
+  </pre>
+  <div class="meta">
+    Eixo C.4 — Proteção parcial: CI existe, mas cobertura limitada a casos isolados. Fluxos centrais não possuem barreira automatizada robusta. Risco: <strong>Alto</strong>
+  </div>
+</body>
+</html>

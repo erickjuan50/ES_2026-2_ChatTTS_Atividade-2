@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>tests/ — estrutura</title>
+  <link rel="stylesheet" href="_estilo_ide.css" />
+</head>
+<body>
+  <div class="titlebar">
+    <span>GitHub — 2noise/ChatTTS</span>
+    <span class="path">tests/</span>
+  </div>
+  <div class="tabs"><span class="tab">Conteúdo da pasta tests/</span></div>
+  <pre>
+<div class="line"><span class="gutter">—</span>tests/</div>
+<div class="line hl"><span class="gutter">1</span>  <span class="str">#511.py</span>       <span class="cm">(2252 bytes — regressão issue #511)</span></div>
+<div class="line hl"><span class="gutter">2</span>  <span class="str">#588.py</span>       <span class="cm">(1063 bytes — regressão issue #588)</span></div>
+<div class="line hl"><span class="gutter">3</span>  <span class="str">#655.py</span>       <span class="cm">(2422 bytes — normalização / tokenizer)</span></div>
+<div class="line hl"><span class="gutter">4</span>  <span class="str">testall.sh</span>    <span class="cm">(261 bytes — loop shell sobre tests/*.py)</span></div>
+<div class="line"><span class="gutter">—</span></div>
+<div class="line"><span class="gutter">—</span><span class="cm">Ausente: test_*.py, conftest.py, fixtures/, pytest.ini</span></div>
+  </pre>
+  <div class="meta">
+    Eixo A.1 — A pasta <code>tests/</code> existe, porém contém scripts ad hoc nomeados por issue (<code>#511.py</code>, <code>#588.py</code>, <code>#655.py</code>) e um shell script orquestrador. Não há convenção <code>test_*.py</code> nem descoberta automática por <code>pytest</code>.
+    Link: <a href="https://github.com/2noise/ChatTTS/tree/main/tests">github.com/2noise/ChatTTS/tree/main/tests</a> · Risco: <strong>Alto</strong>
+  </div>
+</body>
+</html>

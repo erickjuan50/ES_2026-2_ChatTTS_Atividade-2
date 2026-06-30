@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>tests/#511.py — dependência de ambiente</title>
+  <link rel="stylesheet" href="_estilo_ide.css" />
+</head>
+<body>
+  <div class="titlebar">
+    <span>Visual Studio Code</span>
+    <span class="path">tests/#511.py</span>
+  </div>
+  <pre>
+<div class="line"><span class="gutter">17</span>chat = ChatTTS.Chat(logger)</div>
+<div class="line hl"><span class="gutter">18</span>chat.load(compile=False, source=<span class="str">"huggingface"</span>)</div>
+<div class="line"><span class="gutter">31</span>params_infer_code = ChatTTS.Chat.InferCodeParams(</div>
+<div class="line"><span class="gutter">32</span>    spk_emb=chat.sample_random_speaker(),</div>
+<div class="line hl"><span class="gutter">41</span>wavs = chat.infer(</div>
+<div class="line"><span class="gutter">48</span><span class="kw">for</span> k, wav <span class="kw">in</span> enumerate(wavs):</div>
+<div class="line hl"><span class="gutter">49</span>    <span class="kw">if</span> wav <span class="kw">is</span> None:</div>
+<div class="line"><span class="gutter">56</span>    sys.exit(1)</div>
+  </pre>
+  <div class="meta">
+    Eixo B.2 — O teste carrega pesos reais via Hugging Face, executa inferência completa e depende de GPU/CPU, versão do PyTorch e download externo. Sem seed fixa global nem ambiente containerizado. Risco: <strong>Alto</strong>
+    Link: <a href="https://github.com/2noise/ChatTTS/blob/main/tests/%23511.py">tests/#511.py</a>
+  </div>
+</body>
+</html>

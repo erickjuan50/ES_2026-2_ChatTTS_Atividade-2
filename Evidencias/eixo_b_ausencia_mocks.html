@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ausência de mocks e fixtures</title>
+  <link rel="stylesheet" href="_estilo_ide.css" />
+</head>
+<body>
+  <div class="titlebar">
+    <span>Busca no repositório upstream</span>
+    <span class="path">2noise/ChatTTS</span>
+  </div>
+  <pre>
+<div class="line"><span class="gutter">—</span><span class="cm">Diretórios não encontrados:</span></div>
+<div class="line hl"><span class="gutter">—</span>  fixtures/</div>
+<div class="line hl"><span class="gutter">—</span>  mock/</div>
+<div class="line hl"><span class="gutter">—</span>  conftest.py</div>
+<div class="line"><span class="gutter">—</span></div>
+<div class="line"><span class="gutter">—</span><span class="cm">Em tests/#511.py e tests/#655.py:</span></div>
+<div class="line hl"><span class="gutter">—</span>  chat.load(source=<span class="str">"huggingface"</span>)  <span class="cm"># modelo real</span></div>
+<div class="line hl"><span class="gutter">—</span>  chat.infer(...)                  <span class="cm"># inferência real</span></div>
+  </pre>
+  <div class="meta">
+    Eixo B.3 — Nenhum mecanismo de isolamento (mocks, stubs, fixtures) foi identificado. Testes dependem de modelos pré-treinados e infraestrutura externa. Risco: <strong>Alto</strong>
+  </div>
+</body>
+</html>

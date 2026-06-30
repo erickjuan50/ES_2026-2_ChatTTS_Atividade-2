@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Detecção de bugs severos</title>
+  <link rel="stylesheet" href="_estilo_ide.css" />
+</head>
+<body>
+  <div class="titlebar">
+    <span>Síntese da suíte atual</span>
+    <span class="path">tests/</span>
+  </div>
+  <pre>
+<div class="line"><span class="gutter">+</span>  CI/CD no GitHub Actions</div>
+<div class="line"><span class="gutter">+</span>  Workflow Unit Test configurado</div>
+<div class="line"><span class="gutter">—</span></div>
+<div class="line hl"><span class="gutter">−</span>  Baixa transparência da suíte (nomes por issue)</div>
+<div class="line hl"><span class="gutter">−</span>  Ausência de mocks e fixtures</div>
+<div class="line hl"><span class="gutter">−</span>  Dependência de ambiente e hardware</div>
+<div class="line hl"><span class="gutter">−</span>  Sem relatórios de cobertura (pytest-cov)</div>
+<div class="line hl"><span class="gutter">−</span>  Fluxo completo Texto→Áudio não coberto</div>
+  </pre>
+  <div class="meta">
+    Eixo C.5 — Bug crítico em inferência ou qualidade de áudio provavelmente não seria detectado rapidamente pela suíte atual. Resposta: <strong>parcial</strong>. Risco: <strong>Médio-alto</strong>
+  </div>
+</body>
+</html>

@@ -14,13 +14,17 @@
   <pre>
 <div class="line"><span class="gutter">1</span><span class="fn">name</span>: Unit Test</div>
 <div class="line"><span class="gutter">2</span><span class="fn">on</span>: [ push, pull_request ]</div>
-<div class="line hl"><span class="gutter">13</span>        python-version: [<span class="str">"3.8"</span>, <span class="str">"3.9"</span>, <span class="str">"3.10"</span>]</div>
-<div class="line hl"><span class="gutter">47</span>        run: tests/testall.sh</div>
+<div class="line"><span class="gutter">11</span>        python-version: [<span class="str">"3.8"</span>, <span class="str">"3.9"</span>, <span class="str">"3.10"</span>]</div>
+<div class="line"><span class="gutter">37</span>      - name: Test Install</div>
+<div class="line"><span class="gutter">38</span>        run: pip install .</div>
+<div class="line"><span class="gutter">40</span>      - name: Install Dependencies</div>
+<div class="line"><span class="gutter">41</span>        run: pip install -r requirements.txt</div>
+<div class="line hl"><span class="gutter">43</span>      - name: Run Test</div>
+<div class="line hl"><span class="gutter">44</span>        run: tests/testall.sh</div>
   </pre>
   <div class="meta">
-    Eixo A.3 — Code review: revisão humana nem sempre documentada nos PRs; o CI executa
-    <code>tests/testall.sh</code> (ex.: tests/#511.py, #588.py, #655.py). Cadência de commits com picos
-    observável em https://github.com/2noise/ChatTTS/graphs/contributors · Risco: <strong>Médio</strong>
+    Eixo A.2 — CI executa instalação de dependências e delega validação a <code>tests/testall.sh</code>, que invoca scripts Python individuais. Não há etapa de cobertura, relatório estruturado nem bloqueio explícito por tipo de teste unitário.
+    Link: <a href="https://github.com/2noise/ChatTTS/blob/main/.github/workflows/unitest.yml">unitest.yml</a> · Risco: <strong>Alto</strong>
   </div>
 </body>
 </html>

@@ -1,35 +1,39 @@
-# Arquivos e URLs analisados — A2
+# Arquivos e URLs analisados — A3
 
 ## Repositório upstream
 
 Base: https://github.com/2noise/ChatTTS (branch `main`)
 
-### Gestão (Eixo A)
+### Estratégia de testes (Eixo A)
 
-- https://github.com/2noise/ChatTTS/issues/704
-- https://github.com/2noise/ChatTTS/releases
-- https://github.com/2noise/ChatTTS/graphs/contributors
-- https://github.com/2noise/ChatTTS/blob/main/README.md
-
-### Código e arquitetura (Eixos B e C)
-
-- https://github.com/2noise/ChatTTS/blob/main/ChatTTS/core.py
-- https://github.com/2noise/ChatTTS/blob/main/ChatTTS/model/gpt.py
-- https://github.com/2noise/ChatTTS/blob/main/ChatTTS/model/dvae.py
-- https://github.com/2noise/ChatTTS/blob/main/ChatTTS/model/tokenizer.py
-- https://github.com/2noise/ChatTTS/blob/main/ChatTTS/model/__init__.py
-- https://github.com/2noise/ChatTTS/blob/main/ChatTTS/norm.py
-
-### CI (Eixo A.3)
-
-- https://github.com/2noise/ChatTTS/blob/main/.github/workflows/unitest.yml
+- https://github.com/2noise/ChatTTS/tree/main/tests
 - https://github.com/2noise/ChatTTS/blob/main/tests/testall.sh
+- https://github.com/2noise/ChatTTS/blob/main/.github/workflows/unitest.yml
+
+### Scripts de teste existentes (Eixos B e C)
+
+- https://github.com/2noise/ChatTTS/blob/main/tests/%23511.py
+- https://github.com/2noise/ChatTTS/blob/main/tests/%23588.py
 - https://github.com/2noise/ChatTTS/blob/main/tests/%23655.py
 
-### Exemplos (contexto DIP)
+### Módulos críticos (Eixo C)
 
-- https://github.com/2noise/ChatTTS/tree/main/examples
+- https://github.com/2noise/ChatTTS/blob/main/ChatTTS/core.py
+- https://github.com/2noise/ChatTTS/blob/main/requirements.txt
+- https://github.com/2noise/ChatTTS/releases
 
-## Nota sobre `ChatTTS/infer/api.py`
+### Normalização (Eixo B/C)
 
-O relatório PDF da equipe referencia `ChatTTS/infer/api.py` para duplicação DRY. Na branch `main` atual essa pasta **não existe**; a lógica equivalente está nos métodos `_refine_text` e `_infer_code` de `core.py`. A auditoria deste repositório usa o código vigente no GitHub.
+- https://github.com/2noise/ChatTTS/blob/main/tools/normalizer.py
+
+## Itens verificados como ausentes no upstream
+
+- `conftest.py`, `pytest.ini`, `fixtures/`, `mock/`
+- Arquivos `test_*.py` com nomenclatura padrão
+- Relatório de cobertura no CI
+- Testes dedicados para emoção, pausas, multi-locutor, download de modelos
+
+## Conexão A1/A2
+
+- A1: métricas de validação de áudio, `cache_dir`, fallback normalizer
+- A2: God Object em `core.py`, proposta `PipelineFactory` — alvo dos snippets em `snippets/`
