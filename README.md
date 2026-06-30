@@ -4,7 +4,7 @@
 **Atividade:** A3 — Auditoria de Testes e Plano de Evolução de Qualidade  
 **Projeto auditado:** [2noise/ChatTTS](https://github.com/2noise/ChatTTS) (repositório upstream; este repositório contém os artefatos da equipe)
 
-**Link para o vídeo de apresentação:** _(inserir link público antes da entrega)_
+**Link para o vídeo de apresentação:** 
 
 ## Equipe
 
